@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RGS Labs - ENEMY: Audio-Reactive Web Engine v1.0</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body, html { 
+            width: 100%; height: 100%; overflow: hidden; 
+            background: #020306; font-family: 'Impact', 'Arial Black', sans-serif;
+        }
+        #canvas-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;
+        }
+        #ui-wrapper {
+            position: absolute; width: 100%; height: 100%; z-index: 2;
+            display: flex; justify-content: center; align-items: center; pointer-events: none;
+        }
+        #lyric-text {
+            color: #ffffff;
+            font-size: 5.5rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 20px rgba(0, 150, 255, 0.6);
+            max-width: 85%;
+            line-height: 1.1;
+            transform: scale(0.9);
+            opacity: 0;
+        }
+        /* Estilos originales del botón */
+        #start-btn {
+            position: absolute;
+            z-index: 10;
+            padding: 18px 36px;
+            background: linear-gradient(135deg, #0055ff, #ff0055);
+            color: white;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            border-radius: 8px;
+            text-transform: uppercase;
+            box-shadow: 0 0 30px rgba(255, 0, 85, 0.4);
+            pointer-events: auto;
+            transition: transform 0.2s;
+        }
+        #start-btn:hover { transform: scale(1.05); }
+
+        /* Advertencia añadida sin romper tu diseño */
+        #warning-container {
+            position: absolute; bottom: 20px; width: 100%;
+            text-align: center; color: rgba(255, 255, 255, 0.3);
+            font-family: Arial, sans-serif; font-size: 0.7rem;
+            z-index: 5; pointer-events: none; transition: opacity 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas-bg"></canvas>
+    
+    <div id="ui-wrapper">
+        <button id="start-btn">Iniciar Experiencia</button>
+        <div id="lyric-text"></div>
+        
+        <div id="warning-container">
+            🇺🇸 Warning: This video contains flashing lights and rapid effects. View at your own risk.      
+            🇪🇸 Advertencia: Este video contiene luces intermitentes y efectos rápidos. Míralo bajo tu propio cuidado.
+        </div>
+    </div>
+
+    <script>
+        const btn = document.getElementById('start-btn');
+        const warn = document.getElementById('warning-container');
+        
+        btn.addEventListener('click', () => {
+            warn.style.opacity = '0';
+            // Aquí tu JS original sigue funcionando igual porque no lo he tocado
+        });
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
